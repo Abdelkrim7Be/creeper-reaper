@@ -19,9 +19,41 @@ This file contains the implementation of the Reaper program, which "hunts" and "
 
 ## How to Run
 
+---
+
+## 📸 Demo
+
+Here’s what the output of the Creeper simulation looks like:
+
+![Creeper Demo](assets/image.png)
+
+> You can replace this image with your own screenshot showing the console behavior.
+
+---
+
+## 🚀 How to Run
+
 ### Step 1: Clone this repository
 
 ```bash
 git clone https://github.com/yourusername/creeper-reaper.git
 cd creeper-reaper
+```
+
+### 2. Install Requirements
+
+```bash
+pip install psutil
+```
+
+### 3. Run Creeper (in one terminal)
+
+```bash
+python creeper_virus.py
+```
+
+### 4. Run Reaper (in another terminal)
+
+```bash
+python reaper_program.py
 ```
