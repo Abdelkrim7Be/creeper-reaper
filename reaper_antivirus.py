@@ -1,17 +1,26 @@
-import os 
-import sys
+import psutil
+import os
 
-class ReaperAntivirus:
+class ReaperProgram:
     def __init__(self):
-        self.name = 'Reaper'
-        self.virus_name = 'Creeper'
-        
-    def hunt_virus(self): 
-        print(f"{self.name} is hunting the {self.virus_name} virus.")
-        # Terminating all instances of the virus 
-        os.system ("pkill -f 'python creeper_virus.py'")
-        print("Virus terminated!")
-        
+        self.target_script = "creeper_virus.py"
+
+    def hunt_virus(self):
+        print("Reaper is scanning for Creeper virus...")
+
+        for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+            try:
+                cmdline = proc.info['cmdline']
+                if cmdline and self.target_script in " ".join(cmdline):
+                    print(f"Found Creeper virus process with PID {proc.pid}. Terminating...")
+                    proc.terminate()
+                    proc.wait()
+                    print(f"Process {proc.pid} terminated.")
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                continue
+
+        print("Creeper virus cleanup complete.")
+
 if __name__ == "__main__":
-    reaper = ReaperAntivirus()
+    reaper = ReaperProgram()
     reaper.hunt_virus()
