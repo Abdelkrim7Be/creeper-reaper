@@ -31,7 +31,7 @@ Here’s what the output of the Creeper simulation looks like:
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 
 ### Step 1: Clone this repository
 
